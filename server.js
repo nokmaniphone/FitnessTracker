@@ -1,4 +1,3 @@
-const mongoose = require('mongoose')
 const express = require('express')
 const morgan = require('morgan')
 const {join} = require('path')
@@ -6,8 +5,8 @@ const app = express()
  
 app.use(morgan('tiny'))
 app.use(express.static(join(__dirname, 'public')))
-app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+app.use(express.json())
 
 //bring in routes
 app.use(require('./routes'))
@@ -19,19 +18,15 @@ app.get('/', (req, res) => {
 
 //route for excercise.html
 app.get('/exercise', (req, res) => {
-  res.sendfile(join(__dirname, 'public', 'exercise.html'))
+  res.sendfile(join(__dirname, 'public/exercise.html'))
 })
 
 //route for stats.html
 app.get('/stats', (req, res) => {
-  res.sendfile(join(__dirname, 'public', 'stats.html'))
+  res.sendfile(join(__dirname, 'public/stats.html'))
 })
 
 
-mongoose.connect('mongodb://localhost/workout', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false
-})
+require('./config')
 .then( () => app.listen(process.env.PORT || 3000))
 .catch(error => console.error(error))
