@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const Fitness = require('../models')
+const Workout = require('../models')
 
 //update a workout
 router.put('/workouts/:id', (req, res) => {

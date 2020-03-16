@@ -1,9 +1,7 @@
 const express = require('express')
-const morgan = require('morgan')
 const {join} = require('path')
 const app = express()
  
-app.use(morgan('tiny'))
 app.use(express.static(join(__dirname, 'public')))
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())

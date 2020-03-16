@@ -1,3 +1,3 @@
-const Fitness = require('./Workout.js')
+const Workout = require('./Workout.js')
 
-module.exports = Fitness
+module.exports = Workout
