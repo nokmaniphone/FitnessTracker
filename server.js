@@ -9,10 +9,6 @@ app.use(express.json())
 //bring in routes
 app.use(require('./routes'))
 //html routes
-// homepages, rendering index.html
-app.get('/', (req, res) => {
-  res.sendfile(join(__dirname, 'public', 'index.html'))
-})
 
 //route for excercise.html
 app.get('/exercise', (req, res) => {

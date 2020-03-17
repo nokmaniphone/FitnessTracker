@@ -3,3 +3,5 @@ module.exports = require('mongoose').connect('mongodb://heroku_5jk0qb3l:tdk0ii6c
   useUnifiedTopology: true,
   useFindAndModify: false
 })
+
+//mongodb://localhost/workout

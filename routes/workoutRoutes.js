@@ -6,17 +6,17 @@ router.put('/workouts/:id', (req, res) => {
   //pushes the excercise into the specifeid id
   Workout.findByIdAndUpdate(req.params.id, { $push: { excercises: req.body } })
     .then((workout) => res.json(workout))
-    .catch(error => console.error(error))
+    .catch(error => console.log(error))
 })
 
 // get all workouts
 router.get('/workouts', (req, res) => {
-  Workout.find(req.body)
+  Workout.find()
   .then(workouts => res.json(workouts))
   .catch(error => console.log(error))
 })
 
-router.get('/workouts/rang', (req, res) => {
+router.get('/workouts/range', (req, res) => {
   Workout.find(req.body).limit(7)
   .then( (workout) => {
     res.json(workout)
@@ -29,7 +29,7 @@ router.post('/workouts', (req, res) =>{
   console.log(req.body)
   Workout.create(req.body)
   .then( (workout) => res.json(workout))
-  .catch(error => console.error(error))
+  .catch(error => console.log(error))
 })
 
 //put a workout
